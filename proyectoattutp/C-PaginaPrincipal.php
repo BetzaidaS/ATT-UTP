@@ -22,8 +22,7 @@
   <link href="../js/carrusel.js" rel="stylesheet">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link href="https://raw.githubusercontent.com/daneden/animate.css/master/animate.css" rel="stylesheet">
 </head>
 
@@ -32,19 +31,17 @@
     <div>
       <nav class="navbar navbar-light py-0 padding-top:0">
         <a class="navbar-brand" href="#">
-          <img src="../img/tropical_utp_logo.jpg" class="img-circle" width="100" height="100"
-            class="d-inline-block align-top" alt="">
+          <img src="../img/tropical_utp_logo.jpg" class="img-circle" width="100" height="100" class="d-inline-block align-top" alt="">
           Universidad Tecnológica de Panamá</a>
         <div class="navbar-nav">
           <a class="nav-item nav-link" href="#">Cerrar Sesion</a>
         </div>
     </div>
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#68086c;"
-      class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#68086c;" class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
       <a class="navbar-brand py-0" href="#">Servicio de Solicitud de Vehiculos</a>
       <ul class="menu">
-        <li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
-        <li class="nav-item"><a class="nav-menu-link nav-link nav-menu-link_active" href="#">Solicitud</a></li>
+        <li class="nav-item"><a class="nav-menu-link nav-link nav-menu-link_active" href="#">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Solicitud</a></li>
         <li class="nav-item"><a class="nav-link" href="">Estado De
             Solicitud</a></li>
       </ul>
@@ -74,8 +71,7 @@
               </div>
               <br>
               <br>
-              <div class="col-md-5 col-12 order-md-2 order-1"><img src="../img/AUTO4-removebg-preview.png"
-                  class="mx-auto" alt="slide"></div>
+              <div class="col-md-5 col-12 order-md-2 order-1"><img src="../img/AUTO4-removebg-preview.png" class="mx-auto" alt="slide"></div>
             </div>
           </div>
         </div>
@@ -119,8 +115,7 @@
               </div>
               <br>
               <br>
-              <div class="col-md-5 col-12 order-md-2 order-1"><img src="../img/AUTO3-rtemovebg-preview.png"
-                  class="mx-auto" alt="slide"></div>
+              <div class="col-md-5 col-12 order-md-2 order-1"><img src="../img/AUTO3-rtemovebg-preview.png" class="mx-auto" alt="slide"></div>
             </div>
           </div>
         </div>
@@ -211,8 +206,8 @@
 
     <footer>
       <?php
-        require_once('../complementos/fotter.php');
-        ?>
+      require_once('../complementos/fotter.php');
+      ?>
     </footer>
 </body>
 
