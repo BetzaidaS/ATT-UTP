@@ -28,7 +28,6 @@
     </header>
     <div class="row g-0 text-center">
         <div class="col-sm-6 col-md-3 justify-content-center">
-
         </div>
         <main>
             <div class="content">
@@ -49,20 +48,19 @@
                                             <th></th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody>                                    
                                         <?php
-                                        $arr = array("Aprobada", "Rechazada", "En Proceso...", "Aprobada", "Rechazada", "En Proceso...", "Rechazada");
-                                        for ($i = 0; $i <= 6; $i++) {
+                                            $estado = array("En Proceso...","Aprobado", "Rechazado");
+                                        foreach ($solicitudes as $s) {
+
                                         ?>
                                             <tr>
-                                                <td>No.
-                                                    <?php echo $i ?>
+                                                <td>No.<?php echo $s->id_solicitud; ?>
                                                 </td>
-                                                <td>01/09/22</td>
-                                                <td>Su solicitud para el supuesto día al destino tal, y con la cantidad de pasajeros.
+                                                <td><?php echo $s->created_at; ?></td>
+                                                <td><?php echo "La solicitud para el ".$s->fecha." con destino ".$s->destino." con ".$s->cant_personas." pasajeros."; ?>
                                                 </td>
-                                                <td>
-                                                    <?php echo $arr[$i] ?>
+                                                <td><?php echo $estado[$s->estado_solicitud]; ?>
                                                 </td>
                                                 <td class="text-end">
                                                     <a href="" class="btn btn-outline-info btn-rounded"><i class="fas fa-info-circle" i></i></a>

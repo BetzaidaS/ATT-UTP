@@ -1,3 +1,10 @@
+<?php
+    @session_start();// Comienzo de la sesión
+
+    if ($_SESSION["acceso"] != true) {
+        header('Location: ?op=error');
+    }    
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -31,7 +38,7 @@
         </div>
     </div>
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#68086c;" class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
-      <a class="navbar-brand py-0" style="ont-weight: bold; color: #ffffff">Servicio de Solicitud de Vehículos</a>
+      <a class="navbar-brand py-0" style="font-weight: bold; color: #ffffff">Servicio de Solicitud de Vehículos</a>
       <ul class="menu">
         <li class="nav-item"><a class="nav-link" href="?op=solicitudesA">Solicitudes</a></li>
         <li class="nav-item"><a class="nav-link" href="?op=historialViajeA">Historial de Viajes</a></li>

@@ -1,4 +1,5 @@
 <?php
+require_once("modelo/db.php");
 require("controlador/controlador.php");
 $controller = new Controller;
 
@@ -6,6 +7,9 @@ if (isset($_GET['op'])){
 
     $opcion=$_GET['op'];
     switch($opcion){
+        case "acceder":
+            $controller->access();
+            break;
         case "inicioA":
             $controller->InicioAdmin();
             break;

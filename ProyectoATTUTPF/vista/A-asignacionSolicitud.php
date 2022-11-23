@@ -45,7 +45,7 @@
                     <div class="form-group">
                       <label for="form2Example17">Solicitante</label>
                       <input type="text" disabled id="destino" class="form-control form-control-lg"
-                        placeholder="Melida Castillo" />
+                        placeholder="<?php foreach($assign as $a){echo $a->id_funcionario;}?>" />
                     </div>
                     <div class="row">
                       <div class="col-md-6">
@@ -53,20 +53,19 @@
                         <div class="form-group">
                           <label class="form-label" for="form2Example17">Destino</label>
                           <input type="text" disabled id="destino" class="form-control form-control-lg"
-                            placeholder="Sede UTP Chiriquí" />
+                            placeholder="<?php echo $a->destino; ?>" />
                         </div>
                         <div class="form-group">
                           <label class="form-label" for="form2Example17">Fecha de solicitud</label>
                           <input type="text" disabled id="fecha" class="form-control form-control-lg"
-                            placeholder="01/09/22" />
+                            placeholder="<?php echo $a->created_at; ?>" />
                         </div>
                         <div class="form-group">
                           <label class="form-label" for="form2Example17">Conductor</label>
                           <select class="form-control form-control-lg" name="drive" id="drivers" required>
-                            <option value="lc">Luis Ceballos</option>
-                            <option value="bg">Betzaida Gonzales</option>
-                            <option value="lp">Leonardo Pinton</option>
-                            <option value="aa">Alvaro Aguilar</option>
+                            <?php foreach($driver as $d){ ?>
+                            <option><?php echo $d->nombre." ".$d->apellido." (".$d->estado.")"; ?></option>
+                            <?php } ?>
                           </select>
                         </div>
                       </div>
@@ -75,12 +74,12 @@
                         <div class="form-group">
                           <label class="form-label" for="form2Example17">Cantidad de Pasajeros</label>
                           <input type="text" disabled id="passengers" class="form-control form-control-lg"
-                            placeholder="04" />
+                            placeholder="<?php echo $a->cant_personas; ?>" />
                         </div>
                         <div class="form-group">
                           <label class="form-label" for="form2Example17">Fecha solicitada</label>
                           <input type="text" disabled id="datev" class="form-control form-control-lg"
-                            placeholder="11/09/22" />
+                            placeholder="<?php echo $a->fecha; ?>" />
                         </div>
                         <div class="form-group">
                           <label class="form-label" for="form2Example17">Vehiculo</label>
