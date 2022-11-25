@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-11-2022 a las 05:09:10
+-- Tiempo de generación: 25-11-2022 a las 03:32:15
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.1.10
 
@@ -64,9 +64,9 @@ CREATE TABLE `conductor` (
 --
 
 INSERT INTO `conductor` (`id_conductor`, `tipo_licencia`, `diponibilidad`, `estado`, `id_sede`, `id_usuario`, `created_at`, `updated_at`) VALUES
-(1, 'C', 1, 1, 1, 4, '2022-11-23 03:10:42', '2022-11-23 03:10:42'),
-(2, 'D', 0, 2, 1, 5, '2022-11-23 03:14:01', '2022-11-23 03:14:01'),
-(3, 'C', 1, 0, 1, 6, '2022-11-23 03:14:22', '2022-11-23 03:14:22');
+(1, 'C', 1, 0, 1, 4, '2022-11-23 03:10:42', '2022-11-25 01:21:02'),
+(2, 'D', 0, 0, 1, 5, '2022-11-23 03:14:01', '2022-11-25 01:21:02'),
+(3, 'C', 1, 1, 1, 6, '2022-11-23 03:14:22', '2022-11-25 02:04:01');
 
 -- --------------------------------------------------------
 
@@ -87,7 +87,9 @@ CREATE TABLE `funcionario` (
 --
 
 INSERT INTO `funcionario` (`id_funcionario`, `id_sede`, `id_usuario`, `created_at`, `updated_at`) VALUES
-(1, 1, 2, '2022-11-21 02:01:35', '2022-11-21 02:01:35');
+(1, 1, 2, '2022-11-21 02:01:35', '2022-11-21 02:01:35'),
+(2, 1, 7, '2022-11-24 21:39:57', '2022-11-24 21:39:57'),
+(3, 1, 8, '2022-11-24 21:39:57', '2022-11-24 21:39:57');
 
 -- --------------------------------------------------------
 
@@ -147,7 +149,9 @@ CREATE TABLE `solicitud` (
 --
 
 INSERT INTO `solicitud` (`id_solicitud`, `destino`, `fecha`, `hora_salida`, `hora_llegada`, `cant_personas`, `created_at`, `updated_at`) VALUES
-(1, 'Hotel Riu Plaza Panamá', '2022-11-30', '12:00:00', '02:30:00', 6, '2022-11-21 01:58:08', '2022-11-21 01:58:08');
+(1, 'Hotel Riu Plaza Panamá', '2022-11-30', '12:00:00', '02:30:00', 6, '2022-11-21 01:58:08', '2022-11-21 01:58:08'),
+(2, 'Centro de Convenciones ATLAPA', '2022-11-25', '14:00:00', '20:00:00', 20, '2022-11-24 23:05:46', '2022-11-24 23:05:46'),
+(3, 'Centro de Convenciones ATLAPA', '2022-11-25', '13:00:00', '18:00:00', 42, '2022-11-24 23:08:12', '2022-11-24 23:08:12');
 
 -- --------------------------------------------------------
 
@@ -169,7 +173,9 @@ CREATE TABLE `solicitud_funcionario` (
 --
 
 INSERT INTO `solicitud_funcionario` (`id_funcionario`, `id_solicitud`, `estado_solicitud`, `observacion`, `created_at`, `updated_at`) VALUES
-(1, 1, 0, NULL, '2022-11-21 02:01:59', '2022-11-21 02:01:59');
+(1, 1, 0, NULL, '2022-11-21 02:01:59', '2022-11-21 02:01:59'),
+(2, 2, 2, NULL, '2022-11-24 23:06:23', '2022-11-25 02:15:44'),
+(3, 3, 1, NULL, '2022-11-24 23:08:59', '2022-11-25 02:04:01');
 
 -- --------------------------------------------------------
 
@@ -200,7 +206,9 @@ INSERT INTO `usuario` (`id_usuario`, `id_tipo_usuario`, `nombre`, `apellido`, `e
 (3, 0, 'Leonardo', 'Cedeño', 'leonardo@utp.ac.pa', '8-965-1525', 'f1c1592588411002af340cbaedd6fc33', 'foto.png', '2022-11-23 02:36:05', '2022-11-23 02:36:05'),
 (4, 1, 'Alvaro', 'Aguilar', 'alvaro@utp.ac.pa', '5-639-25', '15de21c670ae7c3f6f3f1f37029303c9', 'foto.png', '2022-11-23 03:08:27', '2022-11-23 03:08:27'),
 (5, 1, 'Luis', 'Ceballos', 'luis@utp.ac.pa', '3-998-78', 'b706835de79a2b4e80506f582af3676a', 'photo.jpg', '2022-11-23 03:12:28', '2022-11-23 03:12:28'),
-(6, 1, 'Clark', 'Kent', 'clark@utp.ac.pa', '7-77-77', '0a113ef6b61820daa5611c870ed8d5ee', 'foto.png', '2022-11-23 03:13:22', '2022-11-23 03:13:22');
+(6, 1, 'Clark', 'Kent', 'clark@utp.ac.pa', '7-77-77', '0a113ef6b61820daa5611c870ed8d5ee', 'foto.png', '2022-11-23 03:13:22', '2022-11-23 03:13:22'),
+(7, 2, 'Toph', 'Beifong', 'toph@utp.ac.pa', '1-32-36', 'ddcb155487b88aaa80aed158006bdbdf', 'footo.jpg', '2022-11-24 21:37:52', '2022-11-24 21:40:32'),
+(8, 2, 'Kazuto', 'Kirigaya', 'kazuto@utp.ac.pa', '2-359-6986', '4a7d1ed414474e4033ac29ccb8653d9b', 'foto.png', '2022-11-24 21:39:28', '2022-11-24 21:39:28');
 
 -- --------------------------------------------------------
 
@@ -212,22 +220,40 @@ CREATE TABLE `vehiculo` (
   `id_vehiculo` int(11) NOT NULL,
   `num_placa` varchar(20) NOT NULL,
   `tipo_vehiculo` varchar(50) NOT NULL,
-  `tipo_combustible` varchar(50) NOT NULL,
-  `transmision` varchar(50) NOT NULL,
+  `tipo_motor` varchar(20) NOT NULL,
+  `combustible` varchar(10) NOT NULL,
   `modelo` varchar(50) NOT NULL,
   `marca` varchar(50) NOT NULL,
   `año` varchar(20) NOT NULL,
-  `num_motor` varchar(100) NOT NULL,
-  `marca_motor` varchar(50) NOT NULL,
   `vin` varchar(50) NOT NULL,
   `num_revisado` varchar(100) NOT NULL,
   `num_poliza` varchar(100) NOT NULL,
   `cant_pasajeros` int(11) NOT NULL,
   `cant_puertas` int(11) NOT NULL,
-  `foto` text NOT NULL,
+  `kilometraje` varchar(20) NOT NULL DEFAULT '0 km',
+  `estado_vehiculo` char(1) NOT NULL DEFAULT 'C',
+  `foto` text NOT NULL DEFAULT 'foto.jpg',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `vehiculo`
+--
+
+INSERT INTO `vehiculo` (`id_vehiculo`, `num_placa`, `tipo_vehiculo`, `tipo_motor`, `combustible`, `modelo`, `marca`, `año`, `vin`, `num_revisado`, `num_poliza`, `cant_pasajeros`, `cant_puertas`, `kilometraje`, `estado_vehiculo`, `foto`, `created_at`, `updated_at`) VALUES
+(1, 'CN8022', 'Sedan', 'Gasolina', '95', 'Albea', 'Fiat', '2002', 'JH4DA9370PS000721', '11124566', '02BR118023', 4, 4, '0 km', 'C', 'foto.jpg', '2022-11-24 20:20:52', '2022-11-24 20:32:48'),
+(2, 'ED8976', 'Sedan', 'Gasolina', '91', 'Albea', 'Fiat', '2002', 'KM8JT3AC2DU583865', '55667789', '34VR557788', 4, 4, '3.2 km', 'C', '', '2022-11-24 20:20:52', '2022-11-24 21:07:09'),
+(3, 'AB5566', 'Hatchback', 'Gasolina', '95, 91', 'A3', 'Audi', '2000', 'WP0AA2991YS620631', '11098877', '89MN789856', 4, 5, '10 km', 'C', 'foto.png', '2022-11-24 20:24:00', '2022-11-24 21:05:59'),
+(4, 'JK0909', 'Minivan', 'Gasolina', '95', '500L', 'Audi', '2012', '2GCEK13T961100610', '33445566', '92DC232567', 8, 4, '0 km', 'C', 'foto.jpg', '2022-11-24 20:46:13', '2022-11-24 21:05:23'),
+(5, 'AA1109', 'Minivan', 'Diesel', 'Diesel', 'Doblo', 'Fiat', '2009', 'KNAFT4A22D5675895', '21987654', '33RV667629', 8, 4, '0 km', 'C', 'foto.jpg', '2022-11-24 20:48:27', '2022-11-24 21:05:23'),
+(6, 'BB9988', 'Hatchback', 'Gasolina', '95', 'Bravo', 'Fiat', '2007', 'JTDBF32K920050115', '14359898', '09MN897624', 4, 4, '5 km', 'C', 'foto.jpg', '2022-11-24 20:51:12', '2022-11-24 21:05:59'),
+(7, 'CC3935', 'Camioneta', 'Diesel', 'Diesel', 'Fullback', 'Fiat', '2016', 'JH4DB1561MS001102', '33141618', '11GT668800', 4, 4, '0 km', 'C', 'foto.jpg', '2022-11-24 20:54:26', '2022-11-24 21:05:59'),
+(8, 'DD1090', 'Camioneta', 'Diesel', 'Diesel', 'Fullback', 'Fiat', '2016', '1FVACWCT67HY22127', '29287776', '11LL908769', 4, 4, '0 km', 'C', 'foto.jpg', '2022-11-24 20:54:26', '2022-11-24 21:05:59'),
+(9, 'BU5350', 'Bus', 'Diesel', 'Diesel', '9700', 'Volvo', '2020', '2FAFP71W4YX101840', '66789009', '11HN156518', 43, 2, '20 km', 'C', 'foto.jpg', '2022-11-24 21:03:25', '2022-11-24 23:33:40'),
+(10, 'BU5352', 'Bus', 'Diesel', 'Diesel', '9700', 'Volvo', '2020', '1C3CDZBG8DN504146', '19182763', '11HN688993', 43, 2, '0 km', 'C', 'foto.jpg', '2022-11-24 21:04:38', '2022-11-24 23:33:41'),
+(11, 'BU5354', 'Bus', 'Diesel', 'Diesel', '8500', 'Volvo', '2015', '2CNDL23F856093901', '22987368', '11BB33647', 23, 1, '856 km', 'C', 'foto.jpg', '2022-11-25 01:10:18', '2022-11-25 01:12:08'),
+(12, 'BU5359', 'Bus', 'Diesel', 'Diesel', '8500', 'Volvo', '2015', 'JH4KA7560NC004288', '22019837', '21CD345627', 23, 1, '777 km', 'C', 'foto.jpg', '2022-11-25 01:11:55', '2022-11-25 01:11:55');
 
 -- --------------------------------------------------------
 
@@ -239,11 +265,19 @@ CREATE TABLE `viaje` (
   `id_viaje` int(11) NOT NULL,
   `id_solicitud` int(11) NOT NULL,
   `id_conductor` int(11) NOT NULL,
+  `id_funcionario` int(11) NOT NULL,
   `id_vehiculo` int(11) NOT NULL,
   `estado_viaje` char(1) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `viaje`
+--
+
+INSERT INTO `viaje` (`id_viaje`, `id_solicitud`, `id_conductor`, `id_funcionario`, `id_vehiculo`, `estado_viaje`, `created_at`, `updated_at`) VALUES
+(1, 3, 3, 3, 10, 'A', '2022-11-25 02:04:01', '2022-11-25 02:04:01');
 
 --
 -- Índices para tablas volcadas
@@ -320,7 +354,8 @@ ALTER TABLE `viaje`
   ADD PRIMARY KEY (`id_viaje`),
   ADD KEY `id_solicitud` (`id_solicitud`),
   ADD KEY `id_conductor` (`id_conductor`),
-  ADD KEY `id_vehiculo` (`id_vehiculo`);
+  ADD KEY `id_vehiculo` (`id_vehiculo`),
+  ADD KEY `id_funcionario` (`id_funcionario`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -342,7 +377,7 @@ ALTER TABLE `conductor`
 -- AUTO_INCREMENT de la tabla `funcionario`
 --
 ALTER TABLE `funcionario`
-  MODIFY `id_funcionario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_funcionario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `reporte`
@@ -360,31 +395,31 @@ ALTER TABLE `sede`
 -- AUTO_INCREMENT de la tabla `solicitud`
 --
 ALTER TABLE `solicitud`
-  MODIFY `id_solicitud` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_solicitud` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `solicitud_funcionario`
 --
 ALTER TABLE `solicitud_funcionario`
-  MODIFY `id_solicitud` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_solicitud` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `vehiculo`
 --
 ALTER TABLE `vehiculo`
-  MODIFY `id_vehiculo` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_vehiculo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `viaje`
 --
 ALTER TABLE `viaje`
-  MODIFY `id_viaje` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_viaje` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restricciones para tablas volcadas
@@ -429,7 +464,8 @@ ALTER TABLE `solicitud_funcionario`
 ALTER TABLE `viaje`
   ADD CONSTRAINT `viaje_ibfk_1` FOREIGN KEY (`id_solicitud`) REFERENCES `solicitud` (`id_solicitud`),
   ADD CONSTRAINT `viaje_ibfk_2` FOREIGN KEY (`id_conductor`) REFERENCES `conductor` (`id_conductor`),
-  ADD CONSTRAINT `viaje_ibfk_3` FOREIGN KEY (`id_vehiculo`) REFERENCES `vehiculo` (`id_vehiculo`);
+  ADD CONSTRAINT `viaje_ibfk_3` FOREIGN KEY (`id_vehiculo`) REFERENCES `vehiculo` (`id_vehiculo`),
+  ADD CONSTRAINT `viaje_ibfk_4` FOREIGN KEY (`id_funcionario`) REFERENCES `funcionario` (`id_funcionario`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
