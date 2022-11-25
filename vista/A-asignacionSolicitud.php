@@ -41,62 +41,74 @@
             <div class="card-body p-8 p-lg-2 text-black">
               <div class="container register-form">
                 <div class="form">
-                  <div class="form-content">
-                    <div class="form-group">
-                      <label for="form2Example17">Solicitante</label>
-                      <input type="text" disabled id="destino" class="form-control form-control-lg"
-                        placeholder="<?php foreach($assign as $a){echo $a->id_funcionario;}?>" />
-                    </div>
-                    <div class="row">
-                      <div class="col-md-6">
-
-                        <div class="form-group">
-                          <label class="form-label" for="form2Example17">Destino</label>
-                          <input type="text" disabled id="destino" class="form-control form-control-lg"
-                            placeholder="<?php echo $a->destino; ?>" />
+                  <form method="POST" action="?op=aceptarSolicitudA">
+                    <div class="form-content">   
+                    <?php foreach($assign as $a){}?>  
+                      <div class="form-group">
+                        <label class="form-label" for="form2Example17">Solicitante</label>
+                        <input type="text" disabled id="name" name="name" class="form-control form-control-lg" value="<?php echo $a->nombre." ".$a->apellido;?> "/>
+                      </div>             
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label class="form-label" for="form2Example17">ID Solicitante</label>
+                            <input type="text" readonly id="solicitante" name="id_f" class="form-control form-control-lg"
+                            value="<?php echo $a->id_funcionario;?>"/>
+                          </div>
+                          <div class="form-group">
+                            <label class="form-label" for="form2Example17">Destino</label>
+                            <input type="text" disabled id="destino" class="form-control form-control-lg"
+                              placeholder="<?php echo $a->destino; ?>" />
+                          </div>
+                          <div class="form-group">
+                            <label class="form-label" for="form2Example17">Fecha de solicitud</label>
+                            <input type="text" disabled id="fecha" class="form-control form-control-lg"
+                              placeholder="<?php echo $a->created_at; ?>" />
+                          </div>
+                          <div class="form-group">
+                            <label class="form-label" for="form2Example17">Conductor (Viajes asignados)</label>
+                            <select class="form-control form-control-lg" name="driver" id="driver" required>
+                              <?php foreach($driver as $d){ ?>
+                              <option value="<?php echo $d->id_conductor; ?>"><?php echo $d->nombre." ".$d->apellido." (".$d->estado.")"; ?></option>
+                              <?php } ?>
+                            </select>
+                          </div>
                         </div>
-                        <div class="form-group">
-                          <label class="form-label" for="form2Example17">Fecha de solicitud</label>
-                          <input type="text" disabled id="fecha" class="form-control form-control-lg"
-                            placeholder="<?php echo $a->created_at; ?>" />
-                        </div>
-                        <div class="form-group">
-                          <label class="form-label" for="form2Example17">Conductor</label>
-                          <select class="form-control form-control-lg" name="drive" id="drivers" required>
-                            <?php foreach($driver as $d){ ?>
-                            <option><?php echo $d->nombre." ".$d->apellido." (".$d->estado.")"; ?></option>
+                        <!-- Mitad-->
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label class="form-label" for="form2Example17">No. Solicitud</label>
+                            <input type="text" readonly id="solicitud" name="id_s" class="form-control form-control-lg"
+                              placeholder="<?php echo $a->id_solicitud; ?>" value="<?php echo $a->id_solicitud;?>"/>
+                          </div>
+                          <div class="form-group">
+                            <label class="form-label" for="form2Example17">Cantidad de Pasajeros</label>
+                            <input type="text" disabled id="passengers" class="form-control form-control-lg"
+                              placeholder="<?php echo $a->cant_personas; ?>" />
+                          </div>
+                          <div class="form-group">
+                            <label class="form-label" for="form2Example17">Fecha solicitada</label>
+                            <input type="text" disabled id="datev" class="form-control form-control-lg"
+                              placeholder="<?php echo $a->fecha; ?>" />
+                          </div>
+                          <div class="form-group">
+                            <label class="form-label" for="form2Example17">Vehículo (Cant. Pasajeros)</label>
+                            <select class="form-control form-control-lg" name="car" id="car" required>
+                            <?php foreach($transport as $t){ ?>
+                              <option value="<?php echo $t->id_vehiculo; ?>"><?php echo $t->tipo_vehiculo." (".$t->cant_pasajeros.")"; ?></option>
                             <?php } ?>
-                          </select>
+                            </select>
+                          </div>
                         </div>
                       </div>
-                      <!-- Mitad-->
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label class="form-label" for="form2Example17">Cantidad de Pasajeros</label>
-                          <input type="text" disabled id="passengers" class="form-control form-control-lg"
-                            placeholder="<?php echo $a->cant_personas; ?>" />
-                        </div>
-                        <div class="form-group">
-                          <label class="form-label" for="form2Example17">Fecha solicitada</label>
-                          <input type="text" disabled id="datev" class="form-control form-control-lg"
-                            placeholder="<?php echo $a->fecha; ?>" />
-                        </div>
-                        <div class="form-group">
-                          <label class="form-label" for="form2Example17">Vehiculo</label>
-                          <select class="form-control form-control-lg" name="cars" id="cars" required>
-                            <option value="volvo">Pick-Up</option>
-                            <option value="ford">Sedan</option>
-                            <option value="toyota">Vagoneta</option>
-                            <option value="ford">Hatchback</option>
-                          </select>
-                        </div>
+                      <div class="pt-1 mb-3">
+                        <center>
+                          <input type="submit" name="assign" class="btn Pbotones btn-outline-success mb-2" value="Asignar">                          
+                          <input type="submit" name="decline" class="btn Pbotones btn-outline-danger mb-2" value="Rechazar">
+                        </center>
                       </div>
                     </div>
-                    <div class="pt-1 mb-3">
-                      <center><a href="?op=inicioA"><input type="submit" class="btn Pbotones" value="Asignar"
-                            style="background-color: #68086c; color: white;"></a></center>
-                    </div>
-                  </div>
+                  </form>
                 </div>
               </div>
             </div>

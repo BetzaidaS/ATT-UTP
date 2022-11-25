@@ -37,6 +37,9 @@ if (isset($_GET['op'])){
         case "asignacionSolicitudA":
             $controller->AsignacionSolicitudAdmin();
             break;
+        case "aceptarSolicitudA":
+            $controller->AceptarSolicitud();
+            break;
         case "inicioC":
             $controller->Inicio();
             break;

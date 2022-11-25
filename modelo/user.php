@@ -21,6 +21,7 @@
             }
         }
 
+        //Consulta si existe dicho usuario en la Base de Datos
         public function consult(user $data){
             try{
                 $stm = $this->pdo->prepare("SELECT * FROM usuario WHERE email = ? AND pass = ?");
@@ -31,6 +32,7 @@
             }
         }
 
+        //Consulta usada para obtener la info de un usuario porr medio del ID
         public function get($id)
         {
             try 
@@ -47,6 +49,7 @@
             }
         }
 
+        //Consulta usada para obtener todos los usuarios
         public function getAllUsers(){
             try 
             {
@@ -60,10 +63,11 @@
             }
         }
 
+        //Consulta usada para obtener todos los conductores disponibles para viajes
         public function getAvailableDrivers(){
             try 
             {
-                $stm = $this->pdo->prepare("SELECT u.nombre, u.apellido, c.estado FROM usuario u JOIN conductor c ON u.id_usuario = c.id_usuario");
+                $stm = $this->pdo->prepare("SELECT u.nombre, u.apellido, c.id_conductor, c.estado FROM usuario u JOIN conductor c ON u.id_usuario = c.id_usuario");
                         
                 $stm->execute();
                 return $stm->fetchAll(PDO::FETCH_OBJ);
@@ -72,6 +76,22 @@
                 die($e->getMessage());
             }
         }
+
+        public function updateDriver($id){
+            try 
+            {
+                $stm = $this->pdo->prepare("UPDATE conductor SET estado = estado + 1
+                                            WHERE id_conductor = ?");        
+                $stm->execute(array($id));
+
+                return $stm->fetchAll(PDO::FETCH_OBJ);
+            } catch (Exception $e) 
+            {
+                die($e->getMessage());
+            }
+        }
+
+
 
     }
 ?>

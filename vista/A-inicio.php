@@ -34,7 +34,13 @@
     require_once('compl/A-header.php');
     ?>
   </header>
-
+  <script>
+    <?php if(isset ($_GET['msg']) and isset($_GET['up'])){ ?>
+      alert("<?php echo $_GET['msg'].'\n'.$_GET['up']; ?>");
+    <?php }elseif(isset($_GET['msg'])){ ?>
+      alert("<?php echo $_GET['msg']; ?>");
+    <?php } ?> 
+  </script>
 
   <center>
     <div class="py-4" style="background-color:#ffffff" id="">

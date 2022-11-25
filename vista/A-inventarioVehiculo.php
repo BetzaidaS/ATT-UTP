@@ -44,34 +44,42 @@
                   <th>N° de Placa</th>
                   <th>Modelo</th>
                   <th>Kilometraje</th>
+                  <th>Pasajeros</th>
                   <th>Estado</th>
                   <th>Usado Última vez</th>
                   <th>Revisado Última vez</th>
                 </tr>
               </thead>
               <tbody>
-                <?php
-                $veh = array("Pick-Up", "Sedan", "Vagoneta", "Bus");
-                $mrc = array("Ford", "Nissan", "Ferrari", "Toyota");
-                $mod = array("Fiesta", "Sentra", "Purasangue", "Hilux");
-                $est = array("Disponible", "En Mantenimiento", "Retirado", "En viaje...");
-                for ($i = 0; $i <= 3; $i++) {
-                ?>
+                <?php foreach($car as $c) {?>
                   <tr>
                     <td>
-                      <?php echo $veh[$i] ?>
+                      <?php echo $c->tipo_vehiculo; ?>
                     </td>
                     <td>
-                      <?php echo $mrc[$i] ?>
+                      <?php echo $c->marca; ?>
                     </td>
                     <td>
-                      <?php echo $mod[$i] ?>
+                      <?php echo $c->num_placa; ?>
                     </td>
                     <td>
-                      <?php echo $est[$i] ?>
+                      <?php echo $c->modelo; ?>
                     </td>
-                    <td>06/09/22</td>
-                    <td>28/08/22</td>
+                    <td>
+                      <?php echo $c->kilometraje; ?>
+                    </td>
+                    <td>
+                      <?php echo $c->cant_pasajeros; ?>
+                    </td>
+                    <td>
+                      <?php if($c->estado_vehiculo == 'C') echo 'En Circulación'; ?>
+                    </td>
+                    <td>
+                      <?php echo $c->updated_at; ?>
+                    </td>
+                    <td>
+                      <?php echo $c->created_at; ?>
+                    </td>
                   </tr>
                 <?php   }   ?>
               </tbody>

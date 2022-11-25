@@ -55,7 +55,7 @@
                 <div class="card-body p-4 p-lg-5 text-black">
 
                   <form method="POST" action="?op=acceder">
-                    <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Iniciar Sesión A</h5>
+                    <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Iniciar Sesión</h5>
 
                     <div class="form-outline mb-4">
                       <label class="form-label" for="email">Correo Electronico</label>
